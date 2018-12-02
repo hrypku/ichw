@@ -59,7 +59,7 @@ def currency_response(currency_from, currency_to, amount_from):
 def iscurrency(currency):
     """return True if currency is a valid (3 letter code for a) currency.
     It returns False otherwise."""
-
+    
     json = currency_response('USD', currency, 1)
     return False if has_error(json) else True
 
@@ -72,7 +72,7 @@ def exchange(currency_from, currency_to, amount_from):
             float(amount_from)
         except ValueError:
             print('Input is not a number')
-
+        #test the legitimacy of the user's input
         json = currency_response(currency_from, currency_to, amount_from)
         return float(before_space(get_to(json)))
     else:
